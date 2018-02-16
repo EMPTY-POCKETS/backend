@@ -18,9 +18,9 @@ const Moltin = moltin.gateway({
     client_secret: moltin_secret
 });
 
-const products = Moltin.Products.All().then(ret => {
-    console.log(ret);
-});
+// inject api routes
+require('./api/products')(app, Moltin);
+
 app.listen(port, () => {
     console.log(`Listening on port ${port}!`);
 });
